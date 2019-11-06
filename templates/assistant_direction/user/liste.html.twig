@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<a name="" id="" class="btn btn-primary" href="{{path('ad.user.add')}}" role="button">Nouveau</a>
+
+
+
+<table class="table container">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Role</th>
+      <th scope="col">Login</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   
+    
+    <tr>
+    {% for user in users %}
+      <th scope="row">
+      {{ user.id }}</th>
+      <td>{{user.nom }}</td>
+      <td>{{user.prenom }}</td>
+      <td>{{user.roles ? user.roles|json_encode : ''}}</td>
+      <td>{{user.login }}</td>
+      <td>
+      <a name="" id="" class="btn btn-primary" href="{{path('ad.user.edit',{id:user.id})}}" role="button">Editer</a>
+    <a name="" Onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')" id="" class="btn btn-danger" href="{{path('ad.user.delete',{id:user.id})}}" role="button">Supprimer</a>
+    </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<a name="" id="" class="btn btn-primary" href="{{path('ad.session.add')}}" role="button">Nouveau</a>
+
+
+
+<table class="table container">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Effectif</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   
+    
+    <tr>
+    {% for session in sessions %}
+      <th scope="row">
+      {{ session.id }}</th>
+      <td>{{session.nom }}</td>
+      <td>{{session.effectif }}</td>
+      <td>
+      <a name="" id="" class="btn btn-primary" href="{{path('ad.session.edit',{id:session.id})}}" role="button">Editer</a>
+    <a name="" Onclick="return confirm('Voulez-vous vraiment supprimer cette Session ?')" id="" class="btn btn-danger" href="{{path('ad.session.delete',{id:session.id})}}" role="button">Supprimer</a>
+    </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

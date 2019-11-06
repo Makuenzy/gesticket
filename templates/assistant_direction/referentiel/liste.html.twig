@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<a name="" id="" class="btn btn-primary" href="{{path('ad.referentiel.add')}}" role="button">Nouveau</a>
+
+
+
+<table class="table container">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Rérentiels</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   
+    
+    <tr>
+    {% for referentiel in referentiels %}
+      <th scope="row">
+      {{ referentiel.id }}</th>
+      <td>{{referentiel.nom }}</td>
+      <td>
+      <a name="" id="" class="btn btn-primary" href="{{path('ad.referentiel.edit',{id:referentiel.id})}}" role="button">Editer</a>
+    <a name="" Onclick="return confirm('Voulez-vous vraiment supprimer ce Referentiel ?')" id="" class="btn btn-danger" href="{{path('ad.referentiel.delete',{id:referentiel.id})}}" role="button">Supprimer</a>
+    </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
